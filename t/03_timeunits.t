@@ -1,4 +1,4 @@
-use Test::More tests => 22;
+use Test::More tests => 24;
 use lib qw(./blib/lib);
 use HTTP::WebTest::Plugin::DateTest;
 
@@ -91,3 +91,13 @@ is($ret, '653.74 s', "$date seconds: '$ret'");
 $date = "653.74"; # seconds
 ($ret) = &HTTP::WebTest::Plugin::DateTest::_seconds2str($date, 's');
 is($ret, '653.74 s', "List context: $date seconds: '$ret'");
+
+# invalid date value
+$date = 'unknown';
+($ret) = &HTTP::WebTest::Plugin::DateTest::_seconds2str($date);
+is($ret, 'unknown', "Invalid date: $date : '$ret'");
+
+$date = 'unanticipated';
+($ret) = &HTTP::WebTest::Plugin::DateTest::_seconds2str($date);
+is($ret, 'unknown', "Invalid date: $date : '$ret'");
+

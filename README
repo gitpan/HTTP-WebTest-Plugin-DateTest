@@ -1,4 +1,4 @@
-DateTest version 1.00
+DateTest version 1.01
 =====================
 
 ABSTRACT
@@ -51,7 +51,7 @@ your own risk!
 
 COPYRIGHT AND LICENCE
 
-Copyright (C) 2002 Johannes la Poutre <japh@lapoutre.com>
+Copyright (C) 2002,2003 Johannes la Poutre <japh@lapoutre.com>
 
 This program is free software; you can redistribute it and/or
 modify it under the same terms as Perl itself.

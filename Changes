@@ -1,5 +1,10 @@
 Revision history for Perl extension DateTest.
 
+1.01 Thu Mar 6 17:42:24 2003 UTC
+	- fix for "argument isn't numeric" warning
+	  solves error if a date couldn't be parsed
+	- release on CPAN Fri May 16 2003
+
 1.00 Tue Dec 31 13:57:47 CET 2002
 	- improved human readable result output
 	- added TODO list

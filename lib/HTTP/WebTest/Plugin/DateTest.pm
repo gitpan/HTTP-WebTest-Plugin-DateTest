@@ -1,4 +1,4 @@
-# $Id: DateTest.pm,v 1.5 2002/12/31 15:46:12 joezespak Exp $
+# $Id: DateTest.pm,v 1.8 2003/05/16 08:11:47 joezespak Exp $
 package HTTP::WebTest::Plugin::DateTest;
 use strict;
 use Date::Parse;
@@ -6,7 +6,7 @@ use Date::Language::English;
 use base qw(HTTP::WebTest::Plugin);
 
 use vars qw($VERSION);
-$VERSION = '1.00';
+$VERSION = '1.01';
 
 =head1 NAME
 
@@ -14,8 +14,9 @@ HTTP::WebTest::Plugin::DateTest - Evaluate the "age" of embedded date strings in
 
 =head1 VERSION
 
- Version 1.00 - $Revision: 1.5 $
- Compatible with L<HTTP::WebTest|HTTP::WebTest> 2.00
+ Version 1.01 - $Revision: 1.8 $
+
+Compatible with L<HTTP::WebTest|HTTP::WebTest> 2.x API
 
 =head1 SYNOPSIS
 
@@ -200,6 +201,7 @@ sub _str2seconds {
 # convert seconds into time string
 sub _seconds2str {
     my ($date, $units) = @_;
+    return 'unknown' unless ($date =~ /^[+-]?[\d\.]+$/);
     if (&TIMETAB($units)) {
       return ($units eq 's') ? "$date s"
                              : sprintf("%4.2f %s", $date/&TIMETAB($units), $units);
@@ -268,7 +270,7 @@ sub _str2time_locale {
 
 =head1 COPYRIGHT
 
-Copyright (c) 2002 Johannes la Poutre. All rights reserved.
+Copyright (c) 2002,2003 Johannes la Poutre. All rights reserved.
 
 This module is free software. It may be used, redistributed and/or
 modified under the terms of the Perl Artistic License.
